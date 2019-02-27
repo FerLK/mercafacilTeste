@@ -20,6 +20,7 @@
 # 'cqil}##$E3.79>AuKEXMMXW_mt8{u'
 
 
+
 def gen_prime(end):
 
     cript=[2]
@@ -38,9 +39,15 @@ def gen_prime(end):
         aux = 0
     return cript
 
+def gen_list_prime(index):
+    global size
+    size=index
+    print ('total de caracteres: ',index, '--->', end=' ')
+    return index
+
 
 def index_to_prime(index):
-    prime_list = gen_prime(93)
+    prime_list = gen_prime(size)
     return prime_list[index]
 
 
@@ -66,6 +73,7 @@ def char_limit2(ascii_code):
 
 def decrypt(crypt_txt):
     txt = []
+    gen_list_prime(len(crypt_txt))
     for i, c in enumerate(crypt_txt):
         temp = get_char(i, c)
         tempb = temp[1] - temp[0]
@@ -76,6 +84,7 @@ def decrypt(crypt_txt):
 
 def crypt(text):
     txt = []
+    gen_list_prime(len(text))
     for i, c in enumerate(text):
         temp = get_char(i, c)
         tempb = (temp[1]) + temp[0]
@@ -90,16 +99,17 @@ def option(choice,phrase):
     else:
         crypt(phrase)
 
+size=0
 
 print('testes descriptografia - cqil}##$E3.79>AuKEXMMXW_mt8{u ---> ', end='')
 decrypt('cqil}##$E3.79>AuKEXMMXW_mt8{u')
 print('\ntestes descriptografia- ohhvy$&t.!/->13>?COV ---> ', end='')
 decrypt('ohhvy$&t.!/->13>?COV')
-print('\ntestes criptografia- mecontrata --->', end='')
+print('\ntestes criptografia- mecontrata ---> ', end='')
 crypt('mecontrata')
 
 
 print('\nDigite 1 para descriptografar ou outro valor para criptografar uma frase (Prime-Scramble):\n')
-choic = int(input(''))
+choic = input('')
 phras = input('\nInsira a frase: \n')
 option(choic,phras)
