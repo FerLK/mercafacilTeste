@@ -21,10 +21,7 @@
 
 
 def gen_prime(end):
-    """
-    gera uma lista de numero primo
-    :param end: integer
-    """
+
     cript=[2]
     z=0
     aux=0
@@ -87,6 +84,22 @@ def crypt(text):
     print(''.join(txt))
 
 
+def option(choice,phrase):
+    if choice == 1:
+        decrypt(phrase)
+    else:
+        crypt(phrase)
+
+
+print('testes descriptografia - cqil}##$E3.79>AuKEXMMXW_mt8{u ---> ', end='')
 decrypt('cqil}##$E3.79>AuKEXMMXW_mt8{u')
+print('\ntestes descriptografia- ohhvy$&t.!/->13>?COV ---> ', end='')
 decrypt('ohhvy$&t.!/->13>?COV')
-crypt('testecript')
+print('\ntestes criptografia- mecontrata --->', end='')
+crypt('mecontrata')
+
+
+print('\nDigite 1 para descriptografar ou outro valor para criptografar uma frase (Prime-Scramble):\n')
+choic = int(input(''))
+phras = input('\nInsira a frase: \n')
+option(choic,phras)
